@@ -15,7 +15,7 @@ define(function() {
     },
 
     multiply: function(a, b) {
-
+        return (a*b).toFixed(1);
     }
   };
 });
