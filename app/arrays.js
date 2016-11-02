@@ -25,48 +25,98 @@ define(function() {
     },
 
     remove : function(arr, item) {
-        var index = arr.indexOf(item);
+        temp = [];
+        for (i = 0; i < arr.length; i++){
+            if(arr[i] === item)
+                continue;
+            else
+                temp.push(arr[i]);
+        }
 
-        if (index > -1)
-            arr.splice(index, 1);
-        else
-            alert("Item to be removed not found");
-        
+        return temp;
     },
 
     removeWithoutCopy : function(arr, item) {
+       for(i =0; i< arr.length; i++){
+            if(arr[i] == item){
+                arr.splice(i,1);
+                i = i-2;
+            }
+       }
 
+       return arr;
     },
 
     append : function(arr, item) {
+        temp = [];
+        for (i in arr){
+            temp.push(i);
+        }
 
+        temp.push(item);
+        return temp;
     },
 
     truncate : function(arr) {
+        temp = [];
+        for (i =0; i < arr.length -1; i++){
+            temp[i] = arr[i];
+        }
+
+        return temp;
 
     },
 
     prepend : function(arr, item) {
-
+        temp = []
+        temp.push(item);
+        for (i in arr){
+            temp.push(i);
+        }
+        return temp;
     },
 
     curtail : function(arr) {
+        temp = [];
+        for (i = 0; i < arr.length; i++){
+            temp[i-1] = arr[i];
+        }
 
+        return temp;
     },
 
     concat : function(arr1, arr2) {
-
+        return arr1.concat(arr2);
     },
 
     insert : function(arr, item, index) {
+       temp = [];
+       for(i =0; i < index; i++){
+            temp.push(arr[i])
+       }
+       temp.push(item);
+       for(i + 1; i< (arr.length); i++){
+            temp.push(arr[i])
+       }
 
+       return temp;
     },
 
     count : function(arr, item) {
+        counter = 0;
+        for (i = 0; i < arr.length; i++){
+            if (arr[i] === item){
+                counter++;
+            }
+        }
 
+        return counter;
     },
 
     duplicates : function(arr) {
+        dupl = arr.sort();
+
+        return dupl;
 
     },
 

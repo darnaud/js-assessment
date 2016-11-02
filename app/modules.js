@@ -4,6 +4,11 @@ define(function() {
   return {
     createModule : function(str1, str2) {
 
+    	var module = {
+
+    	}
+
+    	return module;
     }
   };
 });
