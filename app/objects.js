@@ -7,13 +7,13 @@ define(function() {
     },
 
     alterObjects : function(constructor, greeting) {
-    	contructor.prototype.greeting = greeting;
+    	constructor.prototype.greeting = greeting;
     },
 
     iterate : function(obj) {
     	var keys = Object.keys(obj);
     	for(i =0; i< keys.length; i++){
-    		keys[i] =keys[i] +':'+obj[keys[i]];
+    		keys[i] =keys[i] +': '+obj[keys[i]];
 
     	}
     	return keys;

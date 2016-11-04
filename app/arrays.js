@@ -116,21 +116,21 @@ define(function() {
     duplicates : function(arr) {
         arr = arr.sort();
         dupl = [];
-       for ( i = 0; i < arr.length; i++){
-            if(arr[i] === arr[i+1]){
+
+        for(i=0; i<arr.length; i++){
+            if(arr[i] == arr[i+1]){
                 if(dupl.length > 0){
                     for(j=0; j<dupl.length; j++){
-                        if(arr[i] !== dupl[j]){
-                            dupl.push(arr[i]);
+                        if(dupl[j] == arr[i]){
+                            dupl.splice(j,1)
                         }
                     }
                 }
-                else{
-                    dupl.push(arr[i]);
-                }
+                dupl.push(arr[i]);
             }
-       }
-       return dupl;
+        }
+
+        return dupl;
 
     },
 
@@ -144,7 +144,30 @@ define(function() {
     },
 
     findAllOccurrences : function(arr, target) {
-        
+        indices = [];
+
+        for(i = 0; i<arr.length; i++){
+            if(arr[i] === target){
+                indices.push(i);
+            }
+        }
+
+        return indices;
     }
   };
 });
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//
