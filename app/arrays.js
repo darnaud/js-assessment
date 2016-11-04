@@ -114,18 +114,37 @@ define(function() {
     },
 
     duplicates : function(arr) {
-        dupl = arr.sort();
-
-        return dupl;
+        arr = arr.sort();
+        dupl = [];
+       for ( i = 0; i < arr.length; i++){
+            if(arr[i] === arr[i+1]){
+                if(dupl.length > 0){
+                    for(j=0; j<dupl.length; j++){
+                        if(arr[i] !== dupl[j]){
+                            dupl.push(arr[i]);
+                        }
+                    }
+                }
+                else{
+                    dupl.push(arr[i]);
+                }
+            }
+       }
+       return dupl;
 
     },
 
     square : function(arr) {
+        temp = [];
+        for (i = 0; i< arr.length; i++){
+            temp[i] = arr[i]*arr[i];
+        }
 
+        return temp;
     },
 
     findAllOccurrences : function(arr, target) {
-
+        
     }
   };
 });
