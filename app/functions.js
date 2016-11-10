@@ -30,6 +30,7 @@ define(function() {
         return clos_arr;
     },
 
+    // from here to the bottom I got stuck
     partial : function(fn, str1, str2) {
         return function(str3) {
         return fn.call(null, str1, str2, str3);
