@@ -47,7 +47,9 @@ define(function() {
     },
 
     callIt : function(fn) {
-
+        var args = Array.prototype.slice.call(arguments, 1, arguments.length);
+        
+        return fn.apply(null, args);
     },
 
     partialUsingArguments : function(fn) {
