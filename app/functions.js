@@ -37,13 +37,13 @@ define(function() {
     },
 
     useArguments : function() {
-        var sumArgs = 0;
+        var sum_args = 0;
 
         for (var i = 0; i < arguments.length; i++){
-            sumArgs += arguments[i];
+            sum_args += arguments[i];
         }
 
-        return sumArgs;
+        return sum_args;
     },
 
     callIt : function(fn) {
@@ -53,11 +53,31 @@ define(function() {
     },
 
     partialUsingArguments : function(fn) {
-
+        var args1 = Array.prototype.slice.call(arguments, 1, arguments.length);
+        return function() {
+            var args2 = args1.concat(Array.prototype.slice.call(arguments));
+            return fn.apply(null, args2);
+        };
     },
 
     curryIt : function(fn) {
+        function apply_args(_fn, args) {
+            return _fn.apply(null, args);
+        }
 
+        function get_args_acc(args_acc, expected_arg_count) {
+            return function (arg) {
+                args_acc.push(arg);
+
+                if (args_acc.length === expected_arg_count) {
+                    return apply_args(fn, args_acc);
+                }
+
+                return get_args_acc(args_acc, expected_arg_count);
+                 };
+            }       
+
+        return get_args_acc([], fn.length);
     }
   };
 });

@@ -6,14 +6,19 @@ define(function () {
  		function counting(){
  			console.log(start++);
 
- 			if(start<=end){}
+ 			if(start<=end){
+ 				timeout = setTimeout(counting,100)
+ 			}
  		}
 
- 		function cancel(){
- 			
- 		}
+ 		counting();
 
- 		}
+ 		return{
+ 			cancel: function(){
+ 				timeout && clearTimeout(timeout);
+ 			}
+ 		
+ 		};
     }
   };
 });
